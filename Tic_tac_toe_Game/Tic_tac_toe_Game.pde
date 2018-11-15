@@ -1,6 +1,8 @@
 //Variables, no call needed for variables-only
 int game = 0;
-String easy = "Easy", medium = "Average", master = "Master", quit = "QUIT", p1 = "P1", p2 = "P2"; // Lists all fonts avaiable on system
+String easy = "Easy", medium = "Average", master = "Master", quit = "QUIT", p1 = "P1", p2 = "P2", x = "X", o = "O"; // Lists all fonts avaiable on system
+int xWin = 0, oWin = 0, count = 0, position;
+Boolean [] noDraw = new Boolean[9];
 PFont xoFont, levelFont, playerFont, scoreFont;
 
 void setup() {
@@ -18,6 +20,10 @@ scoreFont = createFont ("Rockwell", 48);
   background(0);
   
   quitButtonSetup();
+  
+    for(int i=0; i < noDraw.length; i++) {
+    noDraw[i] = false;
+  }
   
   //Main Divisions
   stroke(255);
@@ -82,8 +88,10 @@ scoreFont = createFont ("Rockwell", 48);
 
 void draw () {
   quitButtonDraw();
+  xoTextDraw();
 }
 
 void mouseClicked() {
   quitButtonMouseClicked();
+  xoButtonDraw();
 }
