@@ -1,6 +1,5 @@
-Firework[] fireworks = new Firework[25]; //Needs to include static variable
-  
-  class Firework {
+class Firework {
+
   //Variables
   float x;
   float y;
