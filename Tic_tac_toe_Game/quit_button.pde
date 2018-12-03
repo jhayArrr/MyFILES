@@ -5,7 +5,7 @@ color hoverOverButton = yellow;
 String title = "QUIT";
 
 void quitButtonSetup() {
-  xoFont = createFont ("Playbill", 48); //Must also Tools / Create Font / Find Font / Do Not Press "OK"
+  playerFont = createFont ("BradleyHandITC-48.vlw", 48); //Must also Tools / Create Font / Find Font / Do Not Press "OK"
 }
 
 void quitButtonDraw() {
@@ -24,7 +24,7 @@ void quitButtonDraw() {
   fill(#2C08FF); //Purple Ink, copied from Color Selector
   textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
   //Values: LEFT | CENTER | RIGHT & TOP | CENTER | BOTTOM | BASELINE
-  textFont(xoFont, width*1/25); //Change the number until it fits, largest font size
+  textFont(playerFont, width*1/30); //Change the number until it fits, largest font size
   text(title, 0, height*3.5/24, width*1/12, height*3.5/24);
   fill(0); //Reset to white for rest of the program
 }

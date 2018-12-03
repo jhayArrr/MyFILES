@@ -13,7 +13,7 @@ void setup() {
   //String[] fontList = PFont.list(); //To list all fonts available on system
   //printArray(fontList); // for listing all possible fonts to choose from, then createFontprintArray(fontList); 
 //Font create
-xoFont = createFont ("Playbill", 48); //Copy spelling from CreateFont, press OK in CreateFont to creat Data Folder
+xoFont = createFont ("BellMT", 48); //Copy spelling from CreateFont, press OK in CreateFont to creat Data Folder
 levelFont = createFont ("Ravie", 48);
 playerFont = createFont ("BradleyHandITC-48.vlw", 48);
 scoreFont = createFont ("Rockwell", 48);
