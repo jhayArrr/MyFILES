@@ -1,4 +1,3 @@
-Firework[] fireworks = new Firework[25]; //Needs to include static variable
 Boolean start = false;
 
 int ballSize =       12;         // how big to make the ball
@@ -25,8 +24,7 @@ void setup() {
   ball2 = new Ball();
   paddle1 = new Paddle(10, height/2);
   paddle2 = new Paddle(width-10, height/2);
-  noStroke();                       // no outlines
-
+  noStroke();                       // no outlines!
 
   // initialize variables
   ballX =             width/2;      // set ball to center of screen
@@ -52,20 +50,23 @@ void draw() {
 
 
 
-  if ((scoreP1 > 9 && scoreP2 < scoreP1) ||( scoreP2 > 9 && scoreP1 < scoreP2)) {
-        //code for drawing fireworks
+  if ((scoreP1 > 9 && scoreP2 < scoreP1) ||( scoreP2 > 9 && scoreP1 < scoreP2)) {   
+    background(0);
+    //code for drawing fireworks
       for (int i=0; i < fireworks.length; i++) {
     fireworks[i].step(); //Calculate Arithmetic
     fireworks[i].draw(); //Draw to the Canvas
-  } 
-  
+  }
+
 
     //Code to change "Start" Boolean Variable to true & to Quit the game
   } else {
     background(0);
     fill(255, 100);
-    rect(width/2 - 3, 0, 6, height);
+    rect(width/2, height/2, 6, height);
     textAlign(LEFT, CENTER);
+    
+
 
 
     // draw the ball, update its position
@@ -93,6 +94,5 @@ void keyPressed() {
     if (keyCode == DOWN) {
       paddle2.y += 15;
   }
-  
 }
 }
