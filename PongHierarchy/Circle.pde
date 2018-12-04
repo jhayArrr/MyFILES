@@ -1,15 +1,14 @@
 class Circle extends Shape {
-  private float xdiameter;
-  private float ydiameter;
+  private float diameter;
   private float width;
   private float height;
   private color c;
+  
 
   
-  private Circle (float width, float height, float xdiameter, float ydiameter, color c) {
+  private Circle (float width, float height, float diameter, color c) {
     super (width, height);
-    this.xdiameter = xdiameter;
-    this.ydiameter = ydiameter;
+    this.diameter = diameter;
     this.width = width;
     this.height = height;
     this.c = c;
@@ -17,18 +16,20 @@ class Circle extends Shape {
   
   public void draw(){
     fill(c);
-    ellipse(width, height, xdiameter, ydiameter);
+    ellipse(width, height, diameter, diameter);
+   
   }
   
-  private void step() {
+  private void step1() {
   height++; width++;
   }
   
-  private void update() {
+  private void step2() {
   height--; width ++;  
   }
   
   private void bounce() {
+
     
     
   }

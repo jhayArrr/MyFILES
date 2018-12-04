@@ -11,8 +11,8 @@ public void setup(){
   
   rHex = new Rectangle(width-width*1/20,height*1/4, width*1/20,height*1/3, #2100FF );
   rRGB = new Rectangle(0, height*1/4, width*1/20, height*1/3, #FF0000);
-  ePub = new Circle(width*1/2, height*1/4, width*1/6, height*1/6, color(random(255), random(255), random(255)));
-  cHex = new Circle(width*1/4, height*1/2, width*1/6, height*1/6, color(random(255), random(255), random(255)));
+  ePub = new Circle(width*1/2, height*1/4, width*1/6, color(random(255), random(255), random(255)));
+  cHex = new Circle(width*1/4, height*1/2, width*1/6, color(random(255), random(255), random(255)));
   //Local Object
   //Rectangle rHex = new Rectangle(width-width*1/20,height*1/4, width*1/20,height*1/3, #05FFD3);
   //Rectangle rRGB = new Rectangle(0, height*1/4, width*1/20, height*1/3, color(random(255), random(255), random(255)));
@@ -36,8 +36,8 @@ public void draw(){
 
 
   //moving Circle
-  ePub.step();
-  cHex.update();
+  ePub.step1();
+  cHex.step2();
   shapes.get(2).draw();
   shapes.get(3).draw();
   

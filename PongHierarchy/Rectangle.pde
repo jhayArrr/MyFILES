@@ -15,7 +15,7 @@ class Rectangle extends Shape {
     rect(x, y, width, height);
   }
   
-  void keyPressed() {
+  private void keyPressed() {
   if (key == CODED) {
     if (keyCode == UP) {
       y-=5;
