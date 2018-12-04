@@ -1,5 +1,7 @@
 //Variables, no call needed for variables-only
 int game = 0;
+int win = 0;
+int full = 9;
 String easy = "Easy", medium = "Average", master = "Master", quit = "QUIT", p1 = "P1", p2 = "P2", x = "X", o = "O"; // Lists all fonts avaiable on system
 int xWin = 0, oWin = 0, count = 0, position;
 Boolean [] noDraw = new Boolean[9];
