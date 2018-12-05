@@ -36,8 +36,8 @@ public void draw(){
 
 
   //moving Circle
-  ePub.step1();
-  cHex.step2();
+  ePub.step();
+  cHex.step();
   shapes.get(2).draw();
   shapes.get(3).draw();
   

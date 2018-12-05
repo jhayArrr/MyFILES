@@ -19,13 +19,16 @@ class Rectangle extends Shape {
   if (key == CODED) {
     if (keyCode == UP) {
       y-=5;
+      if (y == 0) {
+      y = 0;
+    }
     }
     if (keyCode == DOWN) {
       y+=5;
   }
 }
 }
+}
 
     
-  }
   
