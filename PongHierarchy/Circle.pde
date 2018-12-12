@@ -27,7 +27,16 @@ class Circle extends Shape {
     if (x > 500 || x < 0) {
       this.speedX *= -1;
     }
-    
+  private void update () {
+     if (x < 0) {
+      scoreP2 += 1;
+      reset();
+    }
+    if (x > width) {
+      scoreP1 += 1;
+      reset();
+    }
+  }  
     
   }
 }

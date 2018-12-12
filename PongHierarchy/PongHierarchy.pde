@@ -3,6 +3,8 @@ Rectangle rHex;
 Rectangle rRGB;
 Circle ePub;
 Circle cHex;
+int scoreP1, scoreP2;
+PFont = font;
 
 
 
@@ -24,6 +26,11 @@ public void setup(){
   shapes.add(ePub);
   shapes.add(cHex);
 
+scoreP1 = scoreP2 = 0;            // start score at 0 for both players
+
+  // setup font for displaying score
+  font = createFont("Helvetica", 72);    // font name and size
+  textFont(font, 72);
 }
 
 public void draw(){
@@ -38,6 +45,7 @@ public void draw(){
   ePub.step();
   cHex.step();
   rRGB.mouseMove(mouseY);
+  scoreBoard();
   
 }
 public void keyPressed() {
