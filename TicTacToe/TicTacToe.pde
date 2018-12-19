@@ -3,6 +3,7 @@ boolean inGame;
 int player;
 String quit = "QUIT", p1 = "PLAYER 1", p2 = "PLAYER 2";
 PFont playerFont, scoreFont, levelFont;
+int scoreP1, scoreP2;
 boolean gameOver;
 
 void setup() {
@@ -16,6 +17,7 @@ void setup() {
   background(0);
   
   quitButtonSetup();
+  scoreP1 = scoreP2 = 0;    
 }
 
 void draw() {
@@ -47,7 +49,7 @@ void draw() {
     gameOver = true;
   }
 
-  
+  scoreBoard();
   //Scoreboard
   fill(#00FFDF);
   textAlign (CENTER, CENTER);
@@ -65,10 +67,13 @@ void gameOver(int plyr) {
   textAlign(CENTER, CENTER);
   textSize(50);
   if (plyr == 0) {
+    scoreP1+= 1;
     fill(#FA6567);
     text("RED WINS", width/2, height/2);
+
   }
   if (plyr == 1) {
+    scoreP2 += 1;
     fill(#ED7ADE);
     text("PURPLE\nWINS", width/2, height/2);
   }

@@ -72,3 +72,11 @@ class Board {
     }
   }
 }
+void scoreBoard() {
+  fill(#00FFDF);
+  textAlign (CENTER, CENTER);
+  textFont (playerFont, width*1/15);
+  text(scoreP1, 75,150);
+  textAlign(CENTER, CENTER);
+  text(scoreP2, width-75,150);
+}
