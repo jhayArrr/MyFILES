@@ -1,4 +1,4 @@
-class Board {
+public class Board {
   Tile[] tiles = new Tile[9];
   int[] boardValue = new int[9];
   Board() {
@@ -6,7 +6,7 @@ class Board {
       tiles[i] = new Tile();
     }
   }
-  void show() {
+  public void show() {
     for ( int i = 0; i < tiles.length; i++) {
       boardValue[i] = tiles[i].value;
     }
@@ -62,6 +62,9 @@ class Board {
     }
     return true;
   }
+  
+
+  
   void choose(Tile tile, int playr) {
     if (tile.value == -1) {
       tile.addValue(playr);
@@ -71,12 +74,4 @@ class Board {
       }
     }
   }
-}
-void scoreBoard() {
-  fill(#00FFDF);
-  textAlign (CENTER, CENTER);
-  textFont (playerFont, width*1/15);
-  text(scoreP1, 75,150);
-  textAlign(CENTER, CENTER);
-  text(scoreP2, width-75,150);
 }

@@ -1,11 +1,11 @@
-class Tile {
+public class Tile {
   float x,y;
   int value = -1; // 1 for X; 0 for O
   int id; // eache tile gets an id 1-9
   int w = 125;
   Tile() {
   }
-  void show() {
+ public void show() {
     rectMode(CENTER);
     stroke(0);
     strokeWeight(3);
@@ -29,7 +29,7 @@ class Tile {
     this.y = y;
   }
   
-  private boolean isHover() {
+  public boolean isHover() {
     if(mouseX < this.x+ this.w/2 && mouseX > this.x - this.w/2 && mouseY < this.y + this.w/2 && mouseY > this.y - this.w/2) {
       return true;
     }
