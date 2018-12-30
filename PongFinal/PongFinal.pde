@@ -4,7 +4,6 @@
 //Two Player
 int gameScreen = 0;
 int gameLoc = 0;
-boolean paused = false;
 
 //Font
 PFont JustMyType90;
@@ -36,8 +35,8 @@ public void setup() {
   ball2 = new Ball();
   noStroke();
 
-  firstPlayer = new Button(width/2, height/2, 100, "Player 1");
-  twoPlayer = new Button(width/2, height/2+120, 100, "Player 2");
+  firstPlayer = new Button(width/2, height/2, 100, "1 Player");
+  twoPlayer = new Button(width/2, height/2+120, 100, "2 Players ");
   
     //setup for fireworks
   for (int i=0; i < fireworks.length; i++) {
@@ -60,10 +59,8 @@ public void draw() {
     gameLoc = 2;
     return;
   case 3:
-    gameOver();
     return;
-  case 4:
-    return;
+
   }
   
 }
@@ -141,41 +138,6 @@ private void drawDivider() {
     rect(width/2, i, 3, 10);
   }
 }
-
-private void gameOver() {
-  background(0);
-  fill(255);
-  textAlign(CENTER, CENTER);
-  textSize(90);
-  textFont(JustMyType90);
-  text("Game Over", width/2, 100);
-
-  fill(255);
-  if (pointRect(mouseX, mouseY, width/2, height/2, 145, 50)) {
-    rectMode(CENTER);
-    fill(255);
-    rect(width/2, height/2, 145, 50);
-    fill(0);
-  }
-
-
-  textSize(50);
-  textFont(JustMyType50);
-
-  text("Rematch", width/2, height/2);
-
-  fill(255);
-  if (pointRect(mouseX, mouseY, width/2, height/2+60, 145, 50)) {
-    rectMode(CENTER);
-    fill(255);
-    rect(width/2, height/2+60, 145, 50);
-    fill(0);
-  }
-
-  text("Exit", width/2, height/2+60);
-}
-
-
 
 private void lobby() {
   surface.setTitle("Pong");
