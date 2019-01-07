@@ -4,7 +4,7 @@ private class Button {
   int wordLength;
   int textsize = 50;
   float boxwidth;
-  Button(float  x, float y, float h, String word) {
+  Button(float  x, float y, String word) {
     this.x = x;
     this.y = y;
     this.h = 55;

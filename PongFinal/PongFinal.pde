@@ -35,8 +35,8 @@ public void setup() {
   ball2 = new Ball();
   noStroke();
 
-  firstPlayer = new Button(width/2, height/2, 100, "1 Player");
-  twoPlayer = new Button(width/2, height/2+120, 100, "2 Players ");
+  firstPlayer = new Button(width/1.5, height/2-50, "1 Player");
+  twoPlayer = new Button(width/1.5, height/2+50, "2 Players");
   
     //setup for fireworks
   for (int i=0; i < fireworks.length; i++) {
@@ -145,14 +145,26 @@ private void lobby() {
 //Lobby Setup
   background(0);
   textFont(JustMyType90);
-  //drawScore();
-  textAlign(CENTER, CENTER);
-  //drawScore();
-  textAlign(CENTER, CENTER);
+  
+  textAlign(CENTER, BOTTOM);
+  pushMatrix();
+  translate(width/5, height/2);
+  rotate(-HALF_PI);
   fill(255-100);
-  text("PONG", width/2-3, 100+3);
+  text("PONG GAME", 0-3, 50+3);
   fill(255);
-  text("PONG", width/2, 100);
+  text("PONG GAME", 0, 50);
+  popMatrix();
+  
+  //draw line divider
+for (int i=10; i < height; i+= 10*2) {
+    noStroke();
+    rectMode(CENTER);
+    fill(255-100);
+    rect(width/3, i+1, 3, 10);
+    fill(255);
+    rect(width/3, i, 3, 10);
+}
 
 
 
