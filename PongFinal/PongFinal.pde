@@ -1,25 +1,13 @@
 //Gloabal Variables
-//Lobby
-//One Player
-//Two Player
 int gameScreen = 0;
 int gameLoc = 0;
-
-//Font
-PFont JustMyType90;
-PFont JustMyType50;
-PFont JustMyType30;
-
-//Score
+PFont JustMyType90, JustMyType50, JustMyType30;
 int scoreLeft = 0;
 int scoreRight = 0;
-
-//Balls and Paddles
 Paddle paddleL;
 Paddle paddleR;
 Ball ball1;
 Ball ball2;
-
 //Button
 Button firstPlayer;
 Button twoPlayer;
