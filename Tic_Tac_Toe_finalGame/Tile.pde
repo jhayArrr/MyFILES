@@ -179,7 +179,7 @@ void score () {
     (image[2] == 'O' && image[4] == 'O' && image[6] == 'O') ||
     (image[2] == 'O' && image[5] == 'O' && image[8] == 'O') ||
     (image[3] == 'O' && image[4] == 'O' && image[5] == 'O') ||
-    (image[6] == 'O' && image[7] == 'O' && image[8] == 'O')) scoreP1++;
+    (image[6] == 'O' && image[7] == 'O' && image[8] == 'O')) scoreP1 ++;
     
     if((image[0] == 'X' && image[4] == 'X' && image[8] == 'X') ||
     (image[0] == 'X' && image[3] == 'X' && image[6] == 'X') ||
@@ -188,5 +188,6 @@ void score () {
     (image[2] == 'X' && image[5] == 'X' && image[8] == 'X') ||
     (image[3] == 'X' && image[4] == 'X' && image[5] == 'X') ||
     (image[6] == 'X' && image[7] == 'X' && image[8] == 'X')) scorePC++;
+
    }
 }

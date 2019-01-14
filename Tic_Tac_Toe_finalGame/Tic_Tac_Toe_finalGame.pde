@@ -15,6 +15,7 @@ color HoverOverButton = #00FFDF;
 
 void setup() {
   size(500, 600);
+  //fullScreen();
   keyPressed();
   scoreP1 = scoreP2 = scorePC = 0;
   home_ButtonSetup();
