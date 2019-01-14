@@ -1,7 +1,4 @@
 //Global Variables
-//Lobby
-//One Player
-//Two Player
 int gameScreen = 0;
 int gameLoc = 0;
 boolean inGame;
@@ -17,7 +14,7 @@ color yellow = #FFF703;
 color regularButton = black;
 color hoverOverButton = yellow;
 
-//Button
+//Home Buttons
 Button firstPlayer;
 Button twoPlayer;
 
@@ -33,13 +30,7 @@ public void setup() {
   smooth();
   firstPlayer = new Button(width/1.5, height/2-50, "1 PLAYER");
   twoPlayer = new Button(width/1.5, height/2+50, "2 PLAYERS");
-  
-  //cleanup
-  Tile[] tiles = new Tile[9];
-  for ( int i = 0; i < tiles.length; i++) {
-      tiles[i] = new Tile();
-      tiles[i].show();
-  }
+
   
 }
 
@@ -275,12 +266,11 @@ void restartButtonDraw() {
   text(restart, 460, 10, width*1/6, height*3.5/24);
   fill(0); //Reset to white for rest of the program
   //game restart
-  if (mousePressed && mouseX>415 && mouseX<500 && mouseY<25 && mouseY>0) {
+  if (mouseX>415 && mouseX<500 && mouseY<25 && mouseY>0 & mousePressed) { 
+     Board board = new Board();
      board.show();
+  }
 }
-}
-
-
 
 void quitButtonMousePressed() {
   if (mousePressed && mouseX>width*0 && mouseX<50 && mouseY<25 && mouseY>0) {
