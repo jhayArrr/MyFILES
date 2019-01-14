@@ -18,6 +18,7 @@ void setup() {
   keyPressed();
   scoreP1 = scoreP2 = scorePC = 0;
   home_ButtonSetup();
+  score();
   onePlayerDraw();
   twoPlayerDraw();
   quitButtonSetup();
@@ -70,6 +71,7 @@ void draw() {
   textFont (levelFont, 40);
   text("TIC-TAC-TOE", width/1.98, height*1/12.02);
   drawScore();
+  score();
   
     for (int i = 0; i < 9; i++) {
       if (checked[i]) {
