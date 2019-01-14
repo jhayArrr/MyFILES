@@ -1,7 +1,7 @@
 int scoreP1, scoreP2, scorePC;
 boolean start = false;
 int nClicks = 0;
-String quit = "QUIT", p1 = "PLAYER 1", p2 = "PLAYER 2", r = "R:___", p = "P:___", restart = "RESTART";
+String quit = "QUIT", p1 = "PLAYER 1", p2 = "PLAYER 2", r = "RED", p = "PURPLE",pr = "PLAYER", c= "COMPUTER", restart = "RESTART";
 boolean[] checked = new boolean[9];
 PFont playerFont, scoreFont, levelFont;
 boolean odd = true;
@@ -50,6 +50,25 @@ void draw() {
   quitButtonDraw();
   restartButtonDraw(); 
       //Showboard
+  if(start==true && againstPC == true) {    
+  fill(#00FFDF);
+  textAlign (CENTER, CENTER);
+  textFont (playerFont, width*1/25);
+  text (p1, width*0/100, height*1/7, width*1/4, height*1/12);
+  fill(#00FFDF);
+  textAlign (CENTER, CENTER);
+  textFont (playerFont, width*1/25);
+  text (p2, width*75/100, height*1/7, width*1/4, height*1/12);
+  
+  //showboard2
+  fill(#FA6567);
+  textFont (playerFont, width*1/25);
+  text (pr, width*0/100, height*1/5.5, width*1/4, height*1/12);
+  fill(#ED7ADE);
+  textFont (playerFont, width*1/25);
+  text (c, width*75/100, height*1/5.5, width*1/4, height*1/12);
+  }
+  else if(start == true && againstPC == false) {
   fill(#00FFDF);
   textAlign (CENTER, CENTER);
   textFont (playerFont, width*1/25);
@@ -66,12 +85,12 @@ void draw() {
   fill(#ED7ADE);
   textFont (playerFont, width*1/25);
   text (p, width*75/100, height*1/5.5, width*1/4, height*1/12);
+  }
   
   //tictactoe background
   fill(#F2E6E6);
   textFont (levelFont, 40);
   text("TIC-TAC-TOE", width/1.98, height*1/12.02);
-  drawScore();
   score();
   
     for (int i = 0; i < 9; i++) {
@@ -123,7 +142,7 @@ void draw() {
               
 void drawDivider() {
     strokeWeight(10);
-    line(width*1/3, height*1/60, width*1/3, height*29/30);
+    line(width*1/3, height*1/30, width*1/3, height*29/30);
     fill(50);
 }
   

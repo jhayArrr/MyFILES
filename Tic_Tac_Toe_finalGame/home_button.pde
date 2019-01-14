@@ -53,7 +53,7 @@ void twoPlayerDraw() {
   fill(0); //Reset to white for rest of the program
   //exit button
   if (!start) {
-  if (mousePressed && mouseX>width/2.25 && mouseX<width*47/50 && mouseY<height*77/120 && mouseY>height*13/24) {
+  if (mouseX>width/2.25 && mouseX<width*47/50 && mouseY<height*77/120 && mouseY>height*13/24 && mousePressed) {
      againstPC = false;
      start = true;
     }

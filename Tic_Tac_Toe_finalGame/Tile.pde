@@ -1,5 +1,5 @@
 void circle(int box) {
-  if (start == true) {
+  if (start == true && againstPC == true || start == true && againstPC == false) {
   int x1 = 0, x2 = 0, y1 = 0, y2 = 0;
   switch(box) {
   case 0: 
@@ -130,64 +130,54 @@ void cross(int box) {
 }
 }
 
-void drawScore() {
-  if(againstPC == false) {
-  textFont(scoreFont, width/17.5);
-  textAlign(RIGHT);
-  fill(255);
-  text(scoreP1, width/2-width/3-2, height/4-2);
-
-  textAlign(LEFT);
-  fill(255);
-  text(scoreP2, width/2+width/2.6-2,height/4-2);
-  }
-    if(againstPC == true) {
-  textFont(scoreFont, width/17.5);
-  textAlign(RIGHT);
-  fill(255);
-  text(scoreP1, width/2-width/3-2, height/4-2);
-  textAlign(LEFT);
-  fill(255);
-  text(scorePC, width/2+width/2.6-2,height/4-2);
-    }
-}
-
 void score () {
-   if ( (image[0] == 'X' && image[1] == 'X' && image[2] == 'X') ||
+   if ((image[0] == 'X' && image[1] == 'X' && image[2] == 'X') ||
     (image[0] == 'X' && image[4] == 'X' && image[8] == 'X') ||
     (image[0] == 'X' && image[3] == 'X' && image[6] == 'X') ||
     (image[1] == 'X' && image[4] == 'X' && image[7] == 'X') ||
     (image[2] == 'X' && image[4] == 'X' && image[6] == 'X') ||
     (image[2] == 'X' && image[5] == 'X' && image[8] == 'X') ||
     (image[3] == 'X' && image[4] == 'X' && image[5] == 'X') ||
-    (image[6] == 'X' && image[7] == 'X' && image[8] == 'X')) scoreP2++;
-    
-   if ((image[0] == 'O' && image[1] == 'O' && image[2] == 'O') ||
+    (image[6] == 'X' && image[7] == 'X' && image[8] == 'X'))  {
+    fill(#FA6567);
+    textFont (levelFont, width*1/10);
+    text("COMPUTER \n Wins", width/2, height/2);
+    }
+    else if((image[0] == 'O' && image[1] == 'O' && image[2] == 'O') ||
     (image[0] == 'O' && image[4] == 'O' && image[8] == 'O') ||
     (image[0] == 'O' && image[3] == 'O' && image[6] == 'O') ||
     (image[1] == 'O' && image[4] == 'O' && image[7] == 'O') ||
     (image[2] == 'O' && image[4] == 'O' && image[6] == 'O') ||
     (image[2] == 'O' && image[5] == 'O' && image[8] == 'O') ||
     (image[3] == 'O' && image[4] == 'O' && image[5] == 'O') ||
-    (image[6] == 'O' && image[7] == 'O' && image[8] == 'O')) scoreP1++;
-   
-   if (againstPC == true) { 
-   if ((image[0] == 'O' && image[1] == 'O' && image[2] == 'O') ||
+    (image[6] == 'O' && image[7] == 'O' && image[8] == 'O')) {
+    fill(#ED7ADE);
+    textFont (levelFont, width*1/10);
+    text("PLAYER\nWINS", width/2, height/2); 
+    }
+    
+   if ((againstPC == false && start == true) && (image[0] == 'O' && image[1] == 'O' && image[2] == 'O') ||
     (image[0] == 'O' && image[4] == 'O' && image[8] == 'O') ||
     (image[0] == 'O' && image[3] == 'O' && image[6] == 'O') ||
     (image[1] == 'O' && image[4] == 'O' && image[7] == 'O') ||
     (image[2] == 'O' && image[4] == 'O' && image[6] == 'O') ||
     (image[2] == 'O' && image[5] == 'O' && image[8] == 'O') ||
     (image[3] == 'O' && image[4] == 'O' && image[5] == 'O') ||
-    (image[6] == 'O' && image[7] == 'O' && image[8] == 'O')) scoreP1 ++;
-    
-    if((image[0] == 'X' && image[4] == 'X' && image[8] == 'X') ||
+    (image[6] == 'O' && image[7] == 'O' && image[8] == 'O')) {
+    fill(#FA6567);
+    textFont (levelFont, width*1/10);
+    text("RED \n Wins", width/2, height/2);
+  }
+ else if ((againstPC == false && start == true) && (image[0] == 'X' && image[1] == 'X' && image[2] == 'X') ||
+    (image[0] == 'X' && image[4] == 'X' && image[8] == 'X') ||
     (image[0] == 'X' && image[3] == 'X' && image[6] == 'X') ||
     (image[1] == 'X' && image[4] == 'X' && image[7] == 'X') ||
     (image[2] == 'X' && image[4] == 'X' && image[6] == 'X') ||
     (image[2] == 'X' && image[5] == 'X' && image[8] == 'X') ||
     (image[3] == 'X' && image[4] == 'X' && image[5] == 'X') ||
-    (image[6] == 'X' && image[7] == 'X' && image[8] == 'X')) scorePC++;
-
+    (image[6] == 'X' && image[7] == 'X' && image[8] == 'X'))  {    
+    fill(#FA6567);
+    textFont (levelFont, width*1/10);
+    text(" PURPLE\n Wins", width/2, height/2);}
+   
    }
-}

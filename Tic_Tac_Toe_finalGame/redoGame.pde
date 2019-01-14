@@ -1,6 +1,5 @@
 void redoGame() {
   if (nClicks == 9 || win) {
-  background(0);
   stroke(255);
   strokeWeight(1);
   fill(255); 
@@ -8,10 +7,28 @@ void redoGame() {
   text("GAME ENDED", width*1/2, height*1/2.5);
   quitButtonDraw();
   restartButtonDraw(); 
-  drawScore();
   score();
                    
-    //Showboard reset
+      //Showboard
+  if(start==true && againstPC == true) {    
+  fill(#00FFDF);
+  textAlign (CENTER, CENTER);
+  textFont (playerFont, width*1/25);
+  text (p1, width*0/100, height*1/7, width*1/4, height*1/12);
+  fill(#00FFDF);
+  textAlign (CENTER, CENTER);
+  textFont (playerFont, width*1/25);
+  text (p2, width*75/100, height*1/7, width*1/4, height*1/12);
+  
+  //showboard2
+  fill(#FA6567);
+  textFont (playerFont, width*1/25);
+  text (pr, width*0/100, height*1/5.5, width*1/4, height*1/12);
+  fill(#ED7ADE);
+  textFont (playerFont, width*1/25);
+  text (c, width*75/100, height*1/5.5, width*1/4, height*1/12);
+  }
+  else if(start == true && againstPC == false) {
   fill(#00FFDF);
   textAlign (CENTER, CENTER);
   textFont (playerFont, width*1/25);
@@ -28,6 +45,7 @@ void redoGame() {
   fill(#ED7ADE);
   textFont (playerFont, width*1/25);
   text (p, width*75/100, height*1/5.5, width*1/4, height*1/12);
+  }
   
   //tictactoe background
   fill(#F2E6E6);
@@ -40,7 +58,6 @@ void redoGame() {
     
    //single 
   if (win == true) {
-  background(0);
   stroke(255);
   strokeWeight(1);
   fill(255); 
@@ -48,10 +65,28 @@ void redoGame() {
   text("GAME ENDED", width*1/2, height*1/2.5);
   quitButtonDraw();
   restartButtonDraw(); 
-  drawScore();
   score();
                    
-    //Showboard reset
+          //Showboard
+  if(start==true && againstPC == true) {    
+  fill(#00FFDF);
+  textAlign (CENTER, CENTER);
+  textFont (playerFont, width*1/25);
+  text (p1, width*0/100, height*1/7, width*1/4, height*1/12);
+  fill(#00FFDF);
+  textAlign (CENTER, CENTER);
+  textFont (playerFont, width*1/25);
+  text (p2, width*75/100, height*1/7, width*1/4, height*1/12);
+  
+  //showboard2
+  fill(#FA6567);
+  textFont (playerFont, width*1/25);
+  text (pr, width*0/100, height*1/5.5, width*1/4, height*1/12);
+  fill(#ED7ADE);
+  textFont (playerFont, width*1/25);
+  text (c, width*75/100, height*1/5.5, width*1/4, height*1/12);
+  }
+  else if(start == true && againstPC == false) {
   fill(#00FFDF);
   textAlign (CENTER, CENTER);
   textFont (playerFont, width*1/25);
@@ -68,6 +103,8 @@ void redoGame() {
   fill(#ED7ADE);
   textFont (playerFont, width*1/25);
   text (p, width*75/100, height*1/5.5, width*1/4, height*1/12);
+  }
+  
   
   //tictactoe background
   fill(#F2E6E6);
@@ -79,8 +116,7 @@ void redoGame() {
     
 
   //double
-  if (nClicks == 9) {
-  background(0);
+  if (nClicks == 9 && win == false) {
   stroke(255);
   strokeWeight(1);
   fill(255); 
@@ -88,10 +124,27 @@ void redoGame() {
   text("GAME ENDED", width*1/2, height*1/2.5);
   quitButtonDraw();
   restartButtonDraw(); 
-  drawScore();
-  score();
-                   
-    //Showboard reset
+  score();  
+  //Showboard
+  if(start==true && againstPC == true) {    
+  fill(#00FFDF);
+  textAlign (CENTER, CENTER);
+  textFont (playerFont, width*1/25);
+  text (p1, width*0/100, height*1/7, width*1/4, height*1/12);
+  fill(#00FFDF);
+  textAlign (CENTER, CENTER);
+  textFont (playerFont, width*1/25);
+  text (p2, width*75/100, height*1/7, width*1/4, height*1/12);
+  
+  //showboard2
+  fill(#FA6567);
+  textFont (playerFont, width*1/25);
+  text (pr, width*0/100, height*1/5.5, width*1/4, height*1/12);
+  fill(#ED7ADE);
+  textFont (playerFont, width*1/25);
+  text (c, width*75/100, height*1/5.5, width*1/4, height*1/12);
+  }
+  else if(start == true && againstPC == false) {
   fill(#00FFDF);
   textAlign (CENTER, CENTER);
   textFont (playerFont, width*1/25);
@@ -108,6 +161,8 @@ void redoGame() {
   fill(#ED7ADE);
   textFont (playerFont, width*1/25);
   text (p, width*75/100, height*1/5.5, width*1/4, height*1/12);
+  }
+  
   
   //tictactoe background
   fill(#F2E6E6);
