@@ -14,7 +14,7 @@ color RegularButton = 50;
 color HoverOverButton = #00FFDF;
 
 void setup() {
-  size(500, 600);
+  size(1000, 1200);
   //fullScreen();
   keyPressed();
   scoreP1 = scoreP2 = scorePC = 0;
@@ -89,7 +89,7 @@ void draw() {
   
   //tictactoe background
   fill(#F2E6E6);
-  textFont (levelFont, 40);
+  textFont (levelFont, height/15);
   text("TIC-TAC-TOE", width/1.98, height*1/12.02);
   score();
   

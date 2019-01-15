@@ -49,7 +49,7 @@ void redoGame() {
   
   //tictactoe background
   fill(#F2E6E6);
-  textFont (levelFont, 40);
+  textFont (levelFont, height/15);
   text("TIC-TAC-TOE", width/1.98, height*1/12.02);
   
     }
@@ -108,7 +108,7 @@ void redoGame() {
   
   //tictactoe background
   fill(#F2E6E6);
-  textFont (levelFont, 40);
+  textFont (levelFont, height/15);
   text("TIC-TAC-TOE", width/1.98, height*1/12.02);
   
     }
@@ -166,7 +166,7 @@ void redoGame() {
   
   //tictactoe background
   fill(#F2E6E6);
-  textFont (levelFont, 40);
+  textFont (levelFont, height/15);
   text("TIC-TAC-TOE", width/1.98, height*1/12.02);
   
     }
