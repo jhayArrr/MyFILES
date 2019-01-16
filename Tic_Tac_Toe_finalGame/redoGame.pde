@@ -1,4 +1,5 @@
 void redoGame() {
+  
   if (nClicks == 9 || win) {
   stroke(255);
   strokeWeight(1);
