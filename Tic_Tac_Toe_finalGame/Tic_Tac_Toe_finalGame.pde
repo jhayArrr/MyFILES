@@ -12,6 +12,7 @@ color hoverOverButton = #FFF703;
 color RegularButton = 50;
 color HoverOverButton = #00FFDF;
 boolean pressed;
+int player;
 
 void setup() {
   size(1000, 1200);
@@ -184,7 +185,7 @@ void winCheck() {
 void mouseReleased() {
   pressed = false;
 }
-void mouseClicked() {
+void mousePressed() {
   if (!start && mouseX>width/2.25 && mouseX<width*47/50 && mouseY<height*77/120 && mouseY>height*13/24) {
     pressed = true;
   }
@@ -419,10 +420,10 @@ void restartButtonDraw() {
   textFont(playerFont, width*1/30); 
   text(restart, width*83/100, height*0, width*1/6, height*1/24);
   fill(0); 
-  
+
   //game restart
   if (mousePressed && mouseX>width*83/100 && mouseX<width && mouseY<height*1/24 && mouseY>height*0) {
     start = false;
-    pressed = false;
+    //pressed = false;
   }
 }
