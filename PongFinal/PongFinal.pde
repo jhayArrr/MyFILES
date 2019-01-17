@@ -1,14 +1,15 @@
-//Gloabal Variables
+//Lobby
 int gameScreen = 0;
 int gameLoc = 0;
 PFont JustMyType90, JustMyType50, JustMyType30;
+//GamePlay
 int scoreLeft = 0;
 int scoreRight = 0;
 Paddle paddleL;
 Paddle paddleR;
 Ball ball1;
 Ball ball2;
-//Button
+// HomeButtons
 Button firstPlayer;
 Button twoPlayer;
 
@@ -128,12 +129,11 @@ private void drawDivider() {
 }
 
 private void lobby() {
-  surface.setTitle("Pong");
+  surface.setTitle("PONG GAME");
 
 //Lobby Setup
   background(0);
   textFont(JustMyType90);
-  
   textAlign(CENTER, BOTTOM);
   pushMatrix();
   translate(width/5, height/2);
@@ -156,7 +156,7 @@ for (int i=10; i < height; i+= 10*2) {
 
 
 
-//button setup
+//button setup in the homeScreen
   firstPlayer.show();
   if (firstPlayer.isPressed()) {
     gameScreen = 1;
@@ -235,7 +235,7 @@ private void onePlayer() {
     //code for drawing fireworks
       for (int i=0; i < fireworks.length; i++) {
     fireworks[i].step(); //Calculate Arithmetic
-    fireworks[i].draw(); //Draw to the Canvas
+    fireworks[i].draw(); 
   }
  }
 }
@@ -255,13 +255,13 @@ private void twoPlayer() {
     ball2.display();
     ball2.update();
     
-      //for fireworks
+      //for fireworks in 2 player mode end game
   if ((scoreLeft > 9 && scoreRight < scoreLeft) ||( scoreRight > 9 && scoreLeft < scoreRight)) {   
     background(0);
     //code for drawing fireworks
       for (int i=0; i < fireworks.length; i++) {
     fireworks[i].step(); //Calculate Arithmetic
-    fireworks[i].draw(); //Draw to the Canvas
+    fireworks[i].draw(); 
   }
  }
 }
@@ -277,7 +277,6 @@ public boolean collision(int x1, int y1, int w1, int h1, int x2, int y2, int w2,
 }
 public boolean pointRect(int px, int py, int rx, int ry, int rw, int rh) {
 
-  // test for collision
   if (px >= rx-rw/2 && px <= rx+rw/2 && py >= ry-rh/2 && py <= ry+rh/2) {
     return true;    // if a hit, return true
   } else {            // if not, return false

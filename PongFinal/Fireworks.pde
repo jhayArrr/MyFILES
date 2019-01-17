@@ -1,5 +1,4 @@
-private Firework[] fireworks = new Firework[100]; //Needs to include static variable
-  
+private Firework[] fireworks = new Firework[100];
   private class Firework {
   //Variables
   float x;
@@ -9,13 +8,12 @@ private Firework[] fireworks = new Firework[100]; //Needs to include static vari
   float xSpeed;
   float ySpeed;
   float gravity;
-  //static int count = 10; //Static number for amount of firworks
 
   //Constructor
   Firework (float width, float height) {
     //X&Y are values when Pong Ball scores
-    this.x = width/2; //random (width); actually needs to be the X&Y of the score
-    this.y = height/2; //random (height); actually needs to be the X&Y of the score
+    this.x = width/2; 
+    this.y = height/2;
     this.c = color( int(random(255)), int(random(255)), int(random(255)) );
     this.diameter = random(5,20);
     this.xSpeed = (int) random(-30, 30);
@@ -38,7 +36,6 @@ private Firework[] fireworks = new Firework[100]; //Needs to include static vari
       xSpeed *= -1;
     }
     //Changing Gravity of the firework, not changing the origonal position
-    //Important concept, even though math works
     ySpeed += gravity;
   }
     
