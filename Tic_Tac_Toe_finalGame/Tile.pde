@@ -1,5 +1,4 @@
 void circle(int box) {
-  if (start == true && againstPC == true || start == true && againstPC == false) {
     int x1 = 0, x2 = 0, y1 = 0, y2 = 0;
     switch(box) {
     case 0: 
@@ -62,10 +61,8 @@ void circle(int box) {
     fill(#FA6567);//red
     rect(x1 + (x2 - x1) / 100, y1 + (y2 - y1) / 100, width/4, width/4);
   }
-}
 
 void cross(int box) {
-  if (start == true) {
     int x1 = 0, x2 = 0, y1 = 0, y2 = 0;
     switch(box) {
     case 0: 
@@ -128,7 +125,6 @@ void cross(int box) {
     fill(#ED7ADE); //Purple
     rect(x1 + (x2 - x1) / 100, y1 + (y2 - y1) /100, width/4, width/4);
   }
-}
 
 void score () {
   if ((win == true && againstPC == true) && (image[0] == 'X' && image[1] == 'X' && image[2] == 'X') ||

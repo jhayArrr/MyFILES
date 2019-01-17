@@ -1,4 +1,3 @@
-int scoreP1, scoreP2, scorePC;
 boolean start = false;
 int nClicks = 0;
 String quit = "QUIT", p1 = "PLAYER 1", p2 = "PLAYER 2", r = "RED", p = "PURPLE", pr = "PLAYER", c= "COMPUTER", restart = "RESTART";
@@ -7,7 +6,7 @@ PFont playerFont, scoreFont, levelFont;
 boolean odd = true;
 char[] image = new char[9];
 boolean win = false;
-boolean againstPC = true;
+boolean againstPC = true; //computePlay
 color regularButton = 0;
 color hoverOverButton = #FFF703;
 color RegularButton = 50;
@@ -15,10 +14,9 @@ color HoverOverButton = #00FFDF;
 boolean pressed;
 
 void setup() {
-  //size(500, 600);
-  fullScreen();
+  size(1000, 1200);
+  //fullScreen();
   keyPressed();
-  scoreP1 = scoreP2 = scorePC = 0;
   home_ButtonSetup();
   score();
   onePlayerDraw();
@@ -39,6 +37,7 @@ void draw() {
     strokeWeight(2);
     stroke(0);
     fill(50);
+    // line dividers
     rect(width*1/8, height*7/24, width*3/4, height*15/24);
     line(width*1/8, height*7/24, width*7/8, height*7/24);
     line(width*1/8, height*1/2, width*7/8, height*1/2);
@@ -50,7 +49,7 @@ void draw() {
     line(width*7/8, height*7/24, width*7/8, height*11/12);
     quitButtonDraw();
     restartButtonDraw(); 
-    //Showboard
+    //info board for player names
     if (start==true && againstPC == true) {    
       fill(#00FFDF);
       textAlign (CENTER, CENTER);
@@ -61,7 +60,7 @@ void draw() {
       textFont (playerFont, width*1/25);
       text (p2, width*75/100, height*1/7, width*1/4, height*1/12);
 
-      //showboard2
+      //info board for player colors
       fill(#FA6567);
       textFont (playerFont, width*1/25);
       text (pr, width*0/100, height*1/5.5, width*1/4, height*1/12);
@@ -78,7 +77,7 @@ void draw() {
       textFont (playerFont, width*1/25);
       text (p2, width*75/100, height*1/7, width*1/4, height*1/12);
 
-      //showboard2
+      //info board for player in 2 player mode
       fill(#FA6567);
       textFont (playerFont, width*1/25);
       text (r, width*0/100, height*1/5.5, width*1/4, height*1/12);
@@ -385,7 +384,6 @@ void restartButtonSetup() {
 
 
 void quitButtonDraw() {
-  //println ("Mousex:", mouseX, "\tMouseY:", mouseY);
   if (mouseX>width*0 && mouseX<width*1/8 && mouseY<height*1/24 && mouseY>height*0) { //Hover Over
     fill(hoverOverButton);
     stroke(0);
@@ -395,24 +393,18 @@ void quitButtonDraw() {
     stroke(0);
     rect(width*0, height*0, width*1/8, height*1/24);
   }
-
-
-
   //Text in Quit Button
-
-  fill(#2C08FF); //Purple Ink, copied from Color Selector
-  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
-  //Values: LEFT | CENTER | RIGHT & TOP | CENTER | BOTTOM | BASELINE
-  textFont(playerFont, width*1/30); //Change the number until it fits, largest font size
+  fill(#2C08FF); 
+  textAlign (CENTER, CENTER); 
+  textFont(playerFont, width*1/30); 
   text(quit, width*0+width*1/100, height*0, width*1/12, height*1/24);
-  fill(0); //Reset to white for rest of the program
+  fill(0);
   //exit button
   if (mousePressed && mouseX>width*0 && mouseX<width*1/8 && mouseY<height*1/24 && mouseY>height*0) {
     exit();
   }
 }
 void restartButtonDraw() {
-  //println ("Mousex:", mouseX, "\tMouseY:", mouseY);
   if (mouseX>width*83/100 && mouseX<width && mouseY<height*1/24 && mouseY>height*0) { //Hover Over
     fill(hoverOverButton);
     stroke(0);
@@ -422,13 +414,12 @@ void restartButtonDraw() {
     stroke(0);
     rect(width*83/100, height*0, width, height*1/24);
   }
-  //Text in Restart Button
-  fill(#2C08FF); //Purple Ink, copied from Color Selector
-  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
-  //Values: LEFT | CENTER | RIGHT & TOP | CENTER | BOTTOM | BASELINE
-  textFont(playerFont, width*1/30); //Change the number until it fits, largest font size
+  fill(#2C08FF);
+  textAlign (CENTER, CENTER); 
+  textFont(playerFont, width*1/30); 
   text(restart, width*83/100, height*0, width*1/6, height*1/24);
-  fill(0); //Reset to white for rest of the program
+  fill(0); 
+  
   //game restart
   if (mousePressed && mouseX>width*83/100 && mouseX<width && mouseY<height*1/24 && mouseY>height*0) {
     start = false;

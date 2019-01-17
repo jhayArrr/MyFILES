@@ -1,4 +1,4 @@
-void computePlay() {
+void computePlay() { //computer attack movements
   if (image[0] == 'X') {
     if (image[1] == 'X' && !checked[2]) {
       cross(2);
