@@ -401,7 +401,7 @@ void quitButtonDraw() {
   text(quit, width*0+width*1/100, height*0, width*1/12, height*1/24);
   fill(0);
   //exit button
-  if (mousePressed && mouseX>width*0 && mouseX<width*1/8 && mouseY<height*1/24 && mouseY>height*0) {
+  if (/*mousePressed && */mouseX>width*0 && mouseX<width*1/8 && mouseY<height*1/24 && mouseY>height*0) {
     exit();
   }
 }
@@ -422,7 +422,7 @@ void restartButtonDraw() {
   fill(0); 
 
   //game restart
-  if (mousePressed && mouseX>width*83/100 && mouseX<width && mouseY<height*1/24 && mouseY>height*0) {
+  if (/*mousePressed && */mouseX>width*83/100 && mouseX<width && mouseY<height*1/24 && mouseY>height*0) {
     start = false;
     //pressed = false;
   }
