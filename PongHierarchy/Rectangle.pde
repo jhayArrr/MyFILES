@@ -4,8 +4,9 @@ class Rectangle extends Shape {
   private float height;
   private color c;
   private float moveSpeed = 30;
+  private float easing = 1;
 
-  private Rectangle (float x, float y, float width, float height, color c) {
+  public Rectangle (float x, float y, float width, float height, color c) {
     super (x, y);
     this.width = width;
     this.height = height;
@@ -23,8 +24,21 @@ class Rectangle extends Shape {
     if(dir == 2) {
       y += moveSpeed;
     }
+    if(dir == 3) {
+      x += moveSpeed;
+    }
+    if (dir == 4) {
+      x -= moveSpeed;
+    }
   }
-  private void mouseMove(float mousey) {
-    y=mousey;
-  }
-}
+  private void mouseMove() {
+    float targetX = mouseX;
+    float dx = targetX - x;
+    x += dx * easing;
+  
+    float targetY = mouseY;
+    float dy = targetY - y;
+    y += dy * easing;
+   } 
+ }
+    

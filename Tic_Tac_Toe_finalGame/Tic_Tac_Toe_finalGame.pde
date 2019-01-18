@@ -14,7 +14,7 @@ color RegularButton = 50;
 color HoverOverButton = #00FFDF;
 
 void setup() {
-  size(1000, 1200);
+  size(750, 900);
   //fullScreen();
   keyPressed();
   scoreP1 = scoreP2 = scorePC = 0;

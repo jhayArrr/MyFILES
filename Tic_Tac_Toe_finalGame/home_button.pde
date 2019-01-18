@@ -25,7 +25,7 @@ void onePlayerDraw() {
   fill(0); //Reset to white for rest of the program
   //exit button
   if (!start) {
-  if (mousePressed && mouseX>width/2.25 && mouseX<width*47/50 && mouseY<height*19/40 && mouseY>height/2-height/8) {
+  if (mouseX>width/2.25 && mouseX<width*47/50 && mouseY<height*19/40 && mouseY>height/2-height/8) {
      againstPC = true;
       start = true;
     }
@@ -51,7 +51,7 @@ void twoPlayerDraw() {
   text("2 PLAYER", width/2.10, height/2+height/12);
   fill(0);
   if (!start) {
-  if (mouseX>width/2.25 && mouseX<width*47/50 && mouseY<height*77/120 && mouseY>height*13/24 && mousePressed) {
+  if (mouseX>width/2.25 && mouseX<width*47/50 && mouseY<height*77/120 && mouseY>height*13/24) {
      againstPC = false;
      start = true;
     }

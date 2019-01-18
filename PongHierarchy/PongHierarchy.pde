@@ -3,16 +3,13 @@ Rectangle rHex;
 Rectangle rRGB;
 Circle ePub;
 Circle cHex;
-int scoreP1, scoreP2;
-PFont = font;
-
 
 
 public void setup(){
   size (500, 500);
   
-  rHex = new Rectangle(width-width*1/20,height*1/4, width*1/20,height*1/3, #2100FF );
-  rRGB = new Rectangle(0, height*1/4, width*1/20, height*1/3, #FF0000);
+  rHex = new Rectangle(width/4,height*1/4, width*1/4,height*1/4, #2100FF );
+  rRGB = new Rectangle(width/3, height*3/4, width*1/5, height*1/4, #FF0000);
   ePub = new Circle(width*1/2, height*1/4, width*1/6, color(random(255), random(255), random(255)));
   cHex = new Circle(width*1/4, height*1/2, width*1/6, color(random(255), random(255), random(255)));
   //Local Object
@@ -25,12 +22,6 @@ public void setup(){
   shapes.add(rRGB);
   shapes.add(ePub);
   shapes.add(cHex);
-
-scoreP1 = scoreP2 = 0;            // start score at 0 for both players
-
-  // setup font for displaying score
-  font = createFont("Helvetica", 72);    // font name and size
-  textFont(font, 72);
 }
 
 public void draw(){
@@ -44,10 +35,10 @@ public void draw(){
 
   ePub.step();
   cHex.step();
-  rRGB.mouseMove(mouseY);
-  scoreBoard();
+  rRGB.mouseMove();
   
 }
+
 public void keyPressed() {
   if(key == CODED) {
     if(keyCode == UP) {
@@ -55,6 +46,12 @@ public void keyPressed() {
     }
     if(keyCode == DOWN) {
       rHex.move(2);
+    }
+        if(keyCode == RIGHT) {
+      rHex.move(3);
+    }
+    if(keyCode == LEFT) {
+      rHex.move(4);
     }
   
   }
@@ -67,9 +64,16 @@ public void keyReleased() {
     if(keyCode == DOWN) {
       rHex.move(0);
     }
+    if(keyCode == LEFT) {
+      rHex.move(0);
+    }
+    if(keyCode == RIGHT) {
+      rHex.move(0);
+    }
   
   }
 }
+
 
 abstract class Shape {
   public float x;
