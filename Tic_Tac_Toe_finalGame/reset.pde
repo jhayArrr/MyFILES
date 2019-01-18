@@ -26,7 +26,7 @@ void reset() {
   }
   if (win) {
     win = false;
-    if (againstPC && !odd) scorePC ++;
+    if (againstPC && !odd);
   }
   odd = true;
   nClicks = 0;

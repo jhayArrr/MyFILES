@@ -1,23 +1,23 @@
-int scoreP1, scoreP2, scorePC;
 boolean start = false;
 int nClicks = 0;
-String quit = "QUIT", p1 = "PLAYER 1", p2 = "PLAYER 2", r = "RED", p = "PURPLE",pr = "PLAYER", c= "COMPUTER", restart = "RESTART";
+String quit = "QUIT", p1 = "PLAYER 1", p2 = "PLAYER 2", r = "RED", p = "PURPLE", pr = "PLAYER", c= "COMPUTER", restart = "RESTART";
 boolean[] checked = new boolean[9];
 PFont playerFont, scoreFont, levelFont;
 boolean odd = true;
 char[] image = new char[9];
 boolean win = false;
-boolean againstPC = true;
+boolean againstPC = true; //computePlay
 color regularButton = 0;
 color hoverOverButton = #FFF703;
 color RegularButton = 50;
 color HoverOverButton = #00FFDF;
+boolean pressed;
+int player;
 
 void setup() {
   size(750, 900);
   //fullScreen();
   keyPressed();
-  scoreP1 = scoreP2 = scorePC = 0;
   home_ButtonSetup();
   score();
   onePlayerDraw();
@@ -38,6 +38,7 @@ void draw() {
     strokeWeight(2);
     stroke(0);
     fill(50);
+    // line dividers
     rect(width*1/8, height*7/24, width*3/4, height*15/24);
     line(width*1/8, height*7/24, width*7/8, height*7/24);
     line(width*1/8, height*1/2, width*7/8, height*1/2);
@@ -47,52 +48,51 @@ void draw() {
     line(width*3/8, height*7/24, width*3/8, height*11/12);
     line(width*5/8, height*7/24, width*5/8, height*11/12);
     line(width*7/8, height*7/24, width*7/8, height*11/12);
-  quitButtonDraw();
-  restartButtonDraw(); 
-      //Showboard
-  if(start==true && againstPC == true) {    
-  fill(#00FFDF);
-  textAlign (CENTER, CENTER);
-  textFont (playerFont, width*1/25);
-  text (p1, width*0/100, height*1/7, width*1/4, height*1/12);
-  fill(#00FFDF);
-  textAlign (CENTER, CENTER);
-  textFont (playerFont, width*1/25);
-  text (p2, width*75/100, height*1/7, width*1/4, height*1/12);
-  
-  //showboard2
-  fill(#FA6567);
-  textFont (playerFont, width*1/25);
-  text (pr, width*0/100, height*1/5.5, width*1/4, height*1/12);
-  fill(#ED7ADE);
-  textFont (playerFont, width*1/25);
-  text (c, width*75/100, height*1/5.5, width*1/4, height*1/12);
-  }
-  else if(start == true && againstPC == false) {
-  fill(#00FFDF);
-  textAlign (CENTER, CENTER);
-  textFont (playerFont, width*1/25);
-  text (p1, width*0/100, height*1/7, width*1/4, height*1/12);
-  fill(#00FFDF);
-  textAlign (CENTER, CENTER);
-  textFont (playerFont, width*1/25);
-  text (p2, width*75/100, height*1/7, width*1/4, height*1/12);
-  
-  //showboard2
-  fill(#FA6567);
-  textFont (playerFont, width*1/25);
-  text (r, width*0/100, height*1/5.5, width*1/4, height*1/12);
-  fill(#ED7ADE);
-  textFont (playerFont, width*1/25);
-  text (p, width*75/100, height*1/5.5, width*1/4, height*1/12);
-  }
-  
-  //tictactoe background
-  fill(#F2E6E6);
-  textFont (levelFont, height/15);
-  text("TIC-TAC-TOE", width/1.98, height*1/12.02);
-  score();
-  
+    quitButtonDraw();
+    restartButtonDraw(); 
+    //info board for player names
+    if (start==true && againstPC == true) {    
+      fill(#00FFDF);
+      textAlign (CENTER, CENTER);
+      textFont (playerFont, width*1/25);
+      text (p1, width*0/100, height*1/7, width*1/4, height*1/12);
+      fill(#00FFDF);
+      textAlign (CENTER, CENTER);
+      textFont (playerFont, width*1/25);
+      text (p2, width*75/100, height*1/7, width*1/4, height*1/12);
+
+      //info board for player colors
+      fill(#FA6567);
+      textFont (playerFont, width*1/25);
+      text (pr, width*0/100, height*1/5.5, width*1/4, height*1/12);
+      fill(#ED7ADE);
+      textFont (playerFont, width*1/25);
+      text (c, width*75/100, height*1/5.5, width*1/4, height*1/12);
+    } else if (start == true && againstPC == false) {
+      fill(#00FFDF);
+      textAlign (CENTER, CENTER);
+      textFont (playerFont, width*1/25);
+      text (p1, width*0/100, height*1/7, width*1/4, height*1/12);
+      fill(#00FFDF);
+      textAlign (CENTER, CENTER);
+      textFont (playerFont, width*1/25);
+      text (p2, width*75/100, height*1/7, width*1/4, height*1/12);
+
+      //info board for player in 2 player mode
+      fill(#FA6567);
+      textFont (playerFont, width*1/25);
+      text (r, width*0/100, height*1/5.5, width*1/4, height*1/12);
+      fill(#ED7ADE);
+      textFont (playerFont, width*1/25);
+      text (p, width*75/100, height*1/5.5, width*1/4, height*1/12);
+    }
+
+    //tictactoe background
+    fill(#F2E6E6);
+    textFont (levelFont, height/15);
+    text("TIC-TAC-TOE", width/1.98, height*1/12.02);
+    score();
+
     for (int i = 0; i < 9; i++) {
       if (checked[i]) {
         switch(i) {
@@ -131,24 +131,23 @@ void draw() {
         case 8:  
           if (image[8] == 'X') cross(8);
           else circle(8);
-          break;  
-
+          break;
         }
-         redoGame();
+        redoGame();
       }
-  }
+    }
   }
 }
-              
+
 void drawDivider() {
-    strokeWeight(10);
-    line(width*1/3, height*1/30, width*1/3, height*29/30);
-    fill(50);
+  strokeWeight(10);
+  line(width*1/3, height*1/30, width*1/3, height*29/30);
+  fill(50);
 }
-  
+
 void keyPressed() {
   if (keyCode == ENTER) start = !start;
-    if (!start) {
+  if (!start) {
     if (keyCode == LEFT) {
       againstPC = true;
       start = true;
@@ -183,8 +182,17 @@ void winCheck() {
     (image[6] == 'O' && image[7] == 'O' && image[8] == 'O')) win = true;
 }
 
-void mouseClicked() {
-  if (againstPC) {
+void mouseReleased() {
+  pressed = false;
+}
+void mousePressed() {
+  if (!start && mouseX>width/2.25 && mouseX<width*47/50 && mouseY<height*77/120 && mouseY>height*13/24) {
+    pressed = true;
+  }
+  if (!start && mouseX>width/2.25 && mouseX<width*47/50 && mouseY<height*19/40 && mouseY>height/2-height/8) {
+    pressed = true;
+  }
+  if (againstPC && start) {
     if (start && !win && (nClicks % 2) == 0) {
       if (mouseX > width*1/8 && mouseX < width*3/8) {
         if (mouseY > height*7/24 && mouseY < height*1/2) {
@@ -234,7 +242,7 @@ void mouseClicked() {
             nClicks++;
           }
         }
-        if (mouseY > height*17/24 && mouseY <height*1/12) {
+        if (mouseY > height*17/24 && mouseY <height*11/12) {
           if (!checked[7]) {
             checked[7] = true;
             if (odd) image[7] = 'O';
@@ -274,8 +282,7 @@ void mouseClicked() {
         }
       }
     }
-  } 
-  else {
+  } else {
     if (start && !win) {
       if (mouseX > width*1/8 && mouseX < width*3/8) {
         if (mouseY > height*7/24 && mouseY < height*1/2) {
@@ -374,60 +381,49 @@ void quitButtonSetup() {
 
 void restartButtonSetup() {
   playerFont = createFont ("BradleyHandITC-48.vlw", 48); //Must also Tools / Create Font / Find Font / Do Not Press "OK"
-
 }
 
 
 void quitButtonDraw() {
-  //println ("Mousex:", mouseX, "\tMouseY:", mouseY);
   if (mouseX>width*0 && mouseX<width*1/8 && mouseY<height*1/24 && mouseY>height*0) { //Hover Over
     fill(hoverOverButton);
     stroke(0);
     rect(width*0, height*0, width*1/8, height*1/24);
-  } 
-  else {
+  } else {
     fill(regularButton);
     stroke(0);
     rect(width*0, height*0, width*1/8, height*1/24);
   }
-
-
-
   //Text in Quit Button
-
-  fill(#2C08FF); //Purple Ink, copied from Color Selector
-  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
-  //Values: LEFT | CENTER | RIGHT & TOP | CENTER | BOTTOM | BASELINE
-  textFont(playerFont, width*1/30); //Change the number until it fits, largest font size
+  fill(#2C08FF); 
+  textAlign (CENTER, CENTER); 
+  textFont(playerFont, width*1/30); 
   text(quit, width*0+width*1/100, height*0, width*1/12, height*1/24);
-  fill(0); //Reset to white for rest of the program
+  fill(0);
   //exit button
-  if (mousePressed && mouseX>width*0 && mouseX<width*1/8 && mouseY<height*1/24 && mouseY>height*0) {
+  if (/*mousePressed && */mouseX>width*0 && mouseX<width*1/8 && mouseY<height*1/24 && mouseY>height*0) {
     exit();
   }
-
 }
 void restartButtonDraw() {
-  //println ("Mousex:", mouseX, "\tMouseY:", mouseY);
   if (mouseX>width*83/100 && mouseX<width && mouseY<height*1/24 && mouseY>height*0) { //Hover Over
     fill(hoverOverButton);
     stroke(0);
     rect(width*83/100, height*0, width, height*1/24);
-  } 
-  else {
+  } else {
     fill(regularButton);
     stroke(0);
     rect(width*83/100, height*0, width, height*1/24);
   }
-  //Text in Restart Button
-  fill(#2C08FF); //Purple Ink, copied from Color Selector
-  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
-  //Values: LEFT | CENTER | RIGHT & TOP | CENTER | BOTTOM | BASELINE
-  textFont(playerFont, width*1/30); //Change the number until it fits, largest font size
+  fill(#2C08FF);
+  textAlign (CENTER, CENTER); 
+  textFont(playerFont, width*1/30); 
   text(restart, width*83/100, height*0, width*1/6, height*1/24);
-  fill(0); //Reset to white for rest of the program
+  fill(0); 
+
   //game restart
-  if (mousePressed && mouseX>width*83/100 && mouseX<width && mouseY<height*1/24 && mouseY>height*0) {
-     start = !start;
- }
+  if (/*mousePressed && */mouseX>width*83/100 && mouseX<width && mouseY<height*1/24 && mouseY>height*0) {
+    start = false;
+    //pressed = false;
+  }
 }
